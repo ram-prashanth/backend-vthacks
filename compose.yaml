@@ -12,4 +12,4 @@ services:
           memory: 256M
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000/"]
-    domainname: http://amigonow.co/
+    domainname: amigonow.co

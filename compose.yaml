@@ -11,5 +11,6 @@ services:
         reservations:
           memory: 256M
     healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000/"]
+      test: ["CMD", "wget", "-q", "--spider", "http://0.0.0.0:3000/"]
     domainname: amigonow.co
+    

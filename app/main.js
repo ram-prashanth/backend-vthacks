@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const { connectDB } = require('./db');
 const userRoutes = require('./routes/users');
 const tripRoutes = require('./routes/trips');
+const rideRequestRoutes = require('./routes/ride-requests');
 
 require('dotenv').config();
 
@@ -15,18 +16,14 @@ connectDB();
 
 app.use('/api/users', userRoutes);
 app.use('/api/trips', tripRoutes);
+app.use('/api/ride-requests', rideRequestRoutes);
 
-app.all('/', (req, res) => {
-    res.send({
-        "path": req.path,
-        "method": req.method,
-        "headers": req.headers,
-        "args": req.query,
-        "body": req.body
-    });
+app.get('/', (req, res) => {
+    res.send('Carpool App Backend API is running');
 });
 
+// Start the server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server started on port ${PORT}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });

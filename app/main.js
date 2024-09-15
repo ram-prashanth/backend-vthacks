@@ -4,6 +4,7 @@ const { connectDB } = require('./db');
 const userRoutes = require('./routes/users');
 const tripRoutes = require('./routes/trips');
 const rideRequestRoutes = require('./routes/ride-requests');
+const compatibilityRoutes = require('./routes/compatibility');
 
 require('dotenv').config();
 
@@ -17,6 +18,7 @@ connectDB();
 app.use('/api/users', userRoutes);
 app.use('/api/trips', tripRoutes);
 app.use('/api/ride-requests', rideRequestRoutes);
+app.use('/api/compatibility', compatibilityRoutes);
 
 app.get('/', (req, res) => {
     res.send('Carpool App Backend API is running');
